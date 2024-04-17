@@ -1,0 +1,23 @@
+<form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">ID</label>
+        <input [(ngModel)]="booking.id" name="id" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input [(ngModel)]="booking.name" name="name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Room</label>
+        <input [(ngModel)]="booking.roomNumber" name="roomNumber" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">StartDate</label>
+        <input [(ngModel)]="booking.startDate" name="startDate" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">EndDate</label>
+        <input [(ngModel)]="booking.endDate" name="endDate" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <button (click)="onSubmit()" type="submit" class="btn btn-primary">Submit</button>
+</form>
