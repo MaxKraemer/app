@@ -1,12 +1,12 @@
 @for (booking of bookings; track booking.id) {
     <div class="list-group">
-        <a routerLink="/edit/{{booking.id}}" class="list-group-item" aria-current="true">
+        <div routerLink="/edit/{{booking.id}}" class="list-group-item" aria-current="true">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{booking.name}}</h5>
-            <small>{{booking.id}}</small>
+            <div routerLink="/edit{{booking.id}}" class="mb-1 h5 text-decoration-none">{{booking.name}}</div>
+            <button (click)="deleteBooking(booking)" class="btn btn-sm btn-danger">delete</button>
           </div>
           <p class="mb-1">{{booking.startDate | date}} - {{booking.endDate | date}}</p>
           <small>Room: {{booking.roomNumber}}</small>
-        </a>
+        </div>
       </div>
 }

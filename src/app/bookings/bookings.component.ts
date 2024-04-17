@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Booking } from '../mock-data';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Bookings } from '../bookings';
 
 
 @Component({
@@ -19,5 +20,8 @@ export class BookingsComponent {
    
   }
 
-
+deleteBooking(bookings: Bookings) {
+    var indexOf = Booking.indexOf(bookings);
+    Booking.splice(indexOf, 1);
+  }
 }
