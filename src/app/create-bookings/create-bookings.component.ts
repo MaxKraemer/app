@@ -27,15 +27,22 @@ export class CreateBookingsComponent {
   };
 
   ngOnInit() {
-   var id = this.ActivatedRoute.snapshot.params['id'];
-    if(id) {
-      this.booking = Booking.find(booking => booking.id == id)!;
+    if (this.route.url != '/create-bookings') {
+      var id = this.ActivatedRoute.snapshot.params['id'];
+      var bookingId = Booking.find(booking => booking.id == id)!;
+      this.booking = bookingId;
     }
   }
 
   onSubmit() {
-    Booking.push(this.booking);
+   var bookingId = Booking.find(booking => booking.id == this.booking.id);
+
+   if(bookingId == null || bookingId == undefined) {
+     Booking.push(this.booking);
+   } else {
+     bookingId = this.booking;
+   }
+   
     this.route.navigate(['/bookings']);
   }
-
 }
