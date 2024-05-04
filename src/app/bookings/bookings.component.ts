@@ -3,6 +3,7 @@ import { Booking } from '../mock-data';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Bookings } from '../bookings';
+import { BookingService } from '../service/booking.service';
 
 
 @Component({
@@ -14,14 +15,18 @@ import { Bookings } from '../bookings';
 })
 export class BookingsComponent {
 
-  bookings = Booking;
+  booking : Bookings[] = [];
 
-  constructor() {
-   
-  }
+  constructor(private bookingService: BookingService) { }
+
+
+ngOnInit() {
+  this.booking = this.bookingService.getBookings();
+}
 
 deleteBooking(bookings: Bookings) {
-    var indexOf = Booking.indexOf(bookings);
-    Booking.splice(indexOf, 1);
-  }
+  this.bookingService.deleteBooking(bookings);  
+}
+
+
 }
